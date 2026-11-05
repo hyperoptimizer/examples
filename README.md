@@ -12,4 +12,4 @@ The tracking image installs the public `hyperoptimizer==0.1.0` package from PyPI
 
 Code: MIT. Bundled photographs retain their individual public-domain/CC0 terms; see the dataset manifest and attribution.
 
-Release v0.1.0 was published successfully. Immutable references are in [images.lock.json](images.lock.json). Organization policy currently prevents making the GHCR packages public; anonymous pulls remain pending that policy change. Building the examples from this public source and installing the public SDK work independently.
+Release v0.1.0 was published successfully. Immutable references are in [images.lock.json](images.lock.json). Each GHCR package needs Public visibility for anonymous pulls; building from public source and installing the public SDK work independently.

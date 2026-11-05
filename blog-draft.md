@@ -35,4 +35,4 @@ The initial three-photo search failed on a held-out rocket photo. That explorato
 
 This is a five-photo demonstration, not a promise about all web imagery or proof of a global optimum. Image dimensions and metadata treatment stay fixed; encoding time is diagnostic. Compare original and decoded images visually, and repeat the workflow on a larger representative corpus before shipping a global encoding policy.
 
-SDK and container publication passed CI. Anonymous GHCR pulls are blocked by organization package visibility policy. Managed execution, production memory suitability and platform screenshots remain pending. Add actual run links and image digest only after those checks succeed.
+SDK and container publication passed CI. Anonymous GHCR pull verification remains incomplete while the remaining package visibility settings are being configured. Managed execution, production memory suitability and platform screenshots remain pending. Add actual run links and image digest only after those checks succeed.
