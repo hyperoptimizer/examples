@@ -1,0 +1,47 @@
+[
+  {
+    "file": "astronaut.png",
+    "split": "tuning",
+    "sha256": "2fbbf0ae885255b2007d1e74855c19610079b2b94c738fc025424f47e6055674",
+    "author": "NASA",
+    "license": "Public domain",
+    "source": "https://scikit-image.org/docs/0.25.x/api/skimage.data.html#skimage.data.astronaut",
+    "preprocessing": "RGB, longest edge 384, Lanczos, metadata removed"
+  },
+  {
+    "file": "coffee.png",
+    "split": "tuning",
+    "sha256": "4e86cb1cf382a68031036aeddaa8ecb4c9ea1f6b2909a7451295975ef49410d8",
+    "author": "Rachel Michetti / Pikolo Espresso Bar",
+    "license": "CC0",
+    "source": "https://scikit-image.org/docs/0.25.x/api/skimage.data.html#skimage.data.coffee",
+    "preprocessing": "RGB, longest edge 384, Lanczos, metadata removed"
+  },
+  {
+    "file": "chelsea.png",
+    "split": "tuning",
+    "sha256": "3f2722c81e73493a88e3d9d67e3edc084622e995fdd0ce7eb723eaf74d29a500",
+    "author": "Stefan van der Walt",
+    "license": "CC0",
+    "source": "https://scikit-image.org/docs/0.25.x/api/skimage.data.html#skimage.data.chelsea",
+    "preprocessing": "RGB, longest edge 384, Lanczos, metadata removed"
+  },
+  {
+    "file": "rocket.png",
+    "split": "tuning",
+    "sha256": "c5b0a1438e8aa606cf862f903ec2c2edfd68a96ec2dd180331468051703452f0",
+    "author": "SpaceX",
+    "license": "Public domain",
+    "source": "https://scikit-image.org/docs/0.25.x/api/skimage.data.html#skimage.data.rocket",
+    "preprocessing": "RGB, longest edge 384, Lanczos, metadata removed"
+  },
+  {
+    "file": "camera.png",
+    "split": "holdout",
+    "sha256": "d1491d455822f04816fb47b08e0293b9cffc49021825fa4afd2693441727c153",
+    "author": "Lav Varshney",
+    "license": "CC0",
+    "source": "https://scikit-image.org/docs/0.25.x/api/skimage.data.html#skimage.data.camera",
+    "preprocessing": "RGB, longest edge 384, Lanczos, metadata removed"
+  }
+]

@@ -1,0 +1,47 @@
+name: Release images
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+jobs:
+  check:
+    uses: ./.github/workflows/ci.yml
+  publish:
+    needs: check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    strategy:
+      matrix:
+        include:
+          - {name: trial-smoke, context: fixtures/trial-smoke, file: fixtures/trial-smoke/Dockerfile}
+          - {name: python-tracking, context: fixtures/python-tracking, file: fixtures/python-tracking/Dockerfile}
+          - {name: normal, context: fixtures, file: fixtures/normal/Dockerfile}
+          - {name: image-compression, context: image-compression, file: image-compression/Dockerfile}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        id: build
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.file }}
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/${{ matrix.name }}:${{ github.ref_name }}
+            ghcr.io/${{ github.repository }}/${{ matrix.name }}:sha-${{ github.sha }}
+          provenance: true
+          sbom: true
+      - run: echo '${{ steps.build.outputs.digest }}' > digest-${{ matrix.name }}.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: digest-${{ matrix.name }}
+          path: digest-${{ matrix.name }}.txt

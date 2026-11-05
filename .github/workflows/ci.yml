@@ -1,0 +1,29 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        image: [trial-smoke, python-tracking, normal, image-compression]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: docker/setup-buildx-action@v3
+      - run: pip install -r image-compression/requirements.txt jsonschema==4.25.1
+      - run: python scripts/validate_configs.py
+      - run: python -m unittest discover -s image-compression -v
+      - run: python scripts/check.py --image ${{ matrix.image }}
