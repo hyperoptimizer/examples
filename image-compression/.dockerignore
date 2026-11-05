@@ -1,0 +1,7 @@
+results/
+evidence/
+__pycache__/
+*.md
+benchmark.py
+exploratory-benchmark.json
+requirements-dev*

@@ -1,0 +1,467 @@
+{
+  "run_id": "1f45d450-4245-4dde-9896-0b157c79466e",
+  "execution": "local-python",
+  "managed_run_id": null,
+  "image_digest": null,
+  "python": "3.12.16",
+  "versions": {
+    "Pillow": "11.3.0",
+    "numpy": "2.2.6",
+    "scikit-image": "0.25.2",
+    "optuna": "4.5.0"
+  },
+  "seed": 42,
+  "trial_count": 32,
+  "best_parameters": {
+    "quality": 95,
+    "method": 3
+  },
+  "dataset_manifest_sha256": "536084f803ee0dcf858e40926c7c28a7c73313a3bac597f7e7bebe6f8ff5a3f9",
+  "reports": {
+    "tuning": {
+      "baseline": {
+        "quality": 80,
+        "method": 4,
+        "split": "tuning",
+        "compression_loss": 1.0214494509562013,
+        "total_bytes": 60880,
+        "minimum_ssim": 0.9285505490437985,
+        "mean_ssim": 0.942981177417416,
+        "encoding_seconds": 0.03455425053834915,
+        "quality_pass": false,
+        "images": [
+          {
+            "file": "astronaut.png",
+            "ssim": 0.9568859913429716,
+            "bytes": 21040,
+            "source_rgb_bytes": 442368,
+            "encoding_seconds": 0.011699208058416843
+          },
+          {
+            "file": "coffee.png",
+            "ssim": 0.932516259387619,
+            "bytes": 17886,
+            "source_rgb_bytes": 294912,
+            "encoding_seconds": 0.00853170920163393
+          },
+          {
+            "file": "chelsea.png",
+            "ssim": 0.9539719098952751,
+            "bytes": 12836,
+            "source_rgb_bytes": 293760,
+            "encoding_seconds": 0.007962375180795789
+          },
+          {
+            "file": "rocket.png",
+            "ssim": 0.9285505490437985,
+            "bytes": 9118,
+            "source_rgb_bytes": 294912,
+            "encoding_seconds": 0.006360958097502589
+          }
+        ]
+      },
+      "high_quality_reference": {
+        "quality": 100,
+        "method": 4,
+        "split": "tuning",
+        "compression_loss": 0.12807846788766403,
+        "total_bytes": 194772,
+        "minimum_ssim": 0.9536734924847498,
+        "mean_ssim": 0.9747867541088766,
+        "encoding_seconds": 0.1416294169612229,
+        "quality_pass": true,
+        "images": [
+          {
+            "file": "astronaut.png",
+            "ssim": 0.9824672260221238,
+            "bytes": 66372,
+            "source_rgb_bytes": 442368,
+            "encoding_seconds": 0.10563091700896621
+          },
+          {
+            "file": "coffee.png",
+            "ssim": 0.9745966488730389,
+            "bytes": 54148,
+            "source_rgb_bytes": 294912,
+            "encoding_seconds": 0.013451791135594249
+          },
+          {
+            "file": "chelsea.png",
+            "ssim": 0.988409649055594,
+            "bytes": 43282,
+            "source_rgb_bytes": 293760,
+            "encoding_seconds": 0.01212054188363254
+          },
+          {
+            "file": "rocket.png",
+            "ssim": 0.9536734924847498,
+            "bytes": 30970,
+            "source_rgb_bytes": 294912,
+            "encoding_seconds": 0.01042616693302989
+          }
+        ]
+      },
+      "selected": {
+        "quality": 95,
+        "method": 3,
+        "split": "tuning",
+        "compression_loss": 0.09533075522830421,
+        "total_bytes": 139724,
+        "minimum_ssim": 0.951304527289067,
+        "mean_ssim": 0.9707562262419587,
+        "encoding_seconds": 0.046794041991233826,
+        "quality_pass": true,
+        "images": [
+          {
+            "file": "astronaut.png",
+            "ssim": 0.978137266113416,
+            "bytes": 46124,
+            "source_rgb_bytes": 442368,
+            "encoding_seconds": 0.016138541977852583
+          },
+          {
+            "file": "coffee.png",
+            "ssim": 0.9687679686316275,
+            "bytes": 38714,
+            "source_rgb_bytes": 294912,
+            "encoding_seconds": 0.011404416989535093
+          },
+          {
+            "file": "chelsea.png",
+            "ssim": 0.9848151429337242,
+            "bytes": 31898,
+            "source_rgb_bytes": 293760,
+            "encoding_seconds": 0.010660333093255758
+          },
+          {
+            "file": "rocket.png",
+            "ssim": 0.951304527289067,
+            "bytes": 22988,
+            "source_rgb_bytes": 294912,
+            "encoding_seconds": 0.008590749930590391
+          }
+        ]
+      }
+    },
+    "holdout": {
+      "baseline": {
+        "quality": 80,
+        "method": 4,
+        "split": "holdout",
+        "compression_loss": 0.03754373139783823,
+        "total_bytes": 17256,
+        "minimum_ssim": 0.9682802130577745,
+        "mean_ssim": 0.9682802130577745,
+        "encoding_seconds": 0.010682041058316827,
+        "quality_pass": true,
+        "images": [
+          {
+            "file": "camera.png",
+            "ssim": 0.9682802130577745,
+            "bytes": 17256,
+            "source_rgb_bytes": 442368,
+            "encoding_seconds": 0.010682041058316827
+          }
+        ]
+      },
+      "high_quality_reference": {
+        "quality": 100,
+        "method": 4,
+        "split": "holdout",
+        "compression_loss": 0.10126165660998354,
+        "total_bytes": 49842,
+        "minimum_ssim": 0.9945011293302443,
+        "mean_ssim": 0.9945011293302443,
+        "encoding_seconds": 0.015925458166748285,
+        "quality_pass": true,
+        "images": [
+          {
+            "file": "camera.png",
+            "ssim": 0.9945011293302443,
+            "bytes": 49842,
+            "source_rgb_bytes": 442368,
+            "encoding_seconds": 0.015925458166748285
+          }
+        ]
+      },
+      "selected": {
+        "quality": 95,
+        "method": 3,
+        "split": "holdout",
+        "compression_loss": 0.07591652566271856,
+        "total_bytes": 36342,
+        "minimum_ssim": 0.9914312634461915,
+        "mean_ssim": 0.9914312634461915,
+        "encoding_seconds": 0.013604708015918732,
+        "quality_pass": true,
+        "images": [
+          {
+            "file": "camera.png",
+            "ssim": 0.9914312634461915,
+            "bytes": 36342,
+            "source_rgb_bytes": 442368,
+            "encoding_seconds": 0.013604708015918732
+          }
+        ]
+      }
+    }
+  },
+  "trials": [
+    {
+      "number": 0,
+      "params": {
+        "quality": 69,
+        "method": 6
+      },
+      "loss": 1.0436032014809071
+    },
+    {
+      "number": 1,
+      "params": {
+        "quality": 87,
+        "method": 4
+      },
+      "loss": 1.009244943713425
+    },
+    {
+      "number": 2,
+      "params": {
+        "quality": 57,
+        "method": 1
+      },
+      "loss": 1.0551559678646032
+    },
+    {
+      "number": 3,
+      "params": {
+        "quality": 52,
+        "method": 6
+      },
+      "loss": 1.06346292103269
+    },
+    {
+      "number": 4,
+      "params": {
+        "quality": 80,
+        "method": 4
+      },
+      "loss": 1.0214494509562013
+    },
+    {
+      "number": 5,
+      "params": {
+        "quality": 51,
+        "method": 6
+      },
+      "loss": 1.066537287902746
+    },
+    {
+      "number": 6,
+      "params": {
+        "quality": 92,
+        "method": 1
+      },
+      "loss": 1.0025196191805243
+    },
+    {
+      "number": 7,
+      "params": {
+        "quality": 59,
+        "method": 1
+      },
+      "loss": 1.0534169169671643
+    },
+    {
+      "number": 8,
+      "params": {
+        "quality": 65,
+        "method": 3
+      },
+      "loss": 1.0428643916665195
+    },
+    {
+      "number": 9,
+      "params": {
+        "quality": 72,
+        "method": 2
+      },
+      "loss": 1.040364514615441
+    },
+    {
+      "number": 10,
+      "params": {
+        "quality": 99,
+        "method": 0
+      },
+      "loss": 0.13374178298858144
+    },
+    {
+      "number": 11,
+      "params": {
+        "quality": 99,
+        "method": 0
+      },
+      "loss": 0.13374178298858144
+    },
+    {
+      "number": 12,
+      "params": {
+        "quality": 100,
+        "method": 0
+      },
+      "loss": 0.17139082647695872
+    },
+    {
+      "number": 13,
+      "params": {
+        "quality": 100,
+        "method": 0
+      },
+      "loss": 0.17139082647695872
+    },
+    {
+      "number": 14,
+      "params": {
+        "quality": 90,
+        "method": 0
+      },
+      "loss": 1.005664758939226
+    },
+    {
+      "number": 15,
+      "params": {
+        "quality": 81,
+        "method": 2
+      },
+      "loss": 1.0202355328479402
+    },
+    {
+      "number": 16,
+      "params": {
+        "quality": 94,
+        "method": 2
+      },
+      "loss": 1.0005463840670283
+    },
+    {
+      "number": 17,
+      "params": {
+        "quality": 81,
+        "method": 0
+      },
+      "loss": 1.0220370794234082
+    },
+    {
+      "number": 18,
+      "params": {
+        "quality": 96,
+        "method": 1
+      },
+      "loss": 0.10595552271130489
+    },
+    {
+      "number": 19,
+      "params": {
+        "quality": 86,
+        "method": 3
+      },
+      "loss": 1.0117835234164967
+    },
+    {
+      "number": 20,
+      "params": {
+        "quality": 95,
+        "method": 1
+      },
+      "loss": 1.0001775479564141
+    },
+    {
+      "number": 21,
+      "params": {
+        "quality": 97,
+        "method": 0
+      },
+      "loss": 0.11385089166134245
+    },
+    {
+      "number": 22,
+      "params": {
+        "quality": 96,
+        "method": 1
+      },
+      "loss": 0.10595552271130489
+    },
+    {
+      "number": 23,
+      "params": {
+        "quality": 87,
+        "method": 1
+      },
+      "loss": 1.0114081712412628
+    },
+    {
+      "number": 24,
+      "params": {
+        "quality": 96,
+        "method": 2
+      },
+      "loss": 0.1027369543651465
+    },
+    {
+      "number": 25,
+      "params": {
+        "quality": 90,
+        "method": 3
+      },
+      "loss": 1.0053575018432213
+    },
+    {
+      "number": 26,
+      "params": {
+        "quality": 84,
+        "method": 2
+      },
+      "loss": 1.0156721990282271
+    },
+    {
+      "number": 27,
+      "params": {
+        "quality": 75,
+        "method": 2
+      },
+      "loss": 1.0364390741528346
+    },
+    {
+      "number": 28,
+      "params": {
+        "quality": 95,
+        "method": 4
+      },
+      "loss": 0.09546035639879226
+    },
+    {
+      "number": 29,
+      "params": {
+        "quality": 92,
+        "method": 5
+      },
+      "loss": 1.003131738487145
+    },
+    {
+      "number": 30,
+      "params": {
+        "quality": 67,
+        "method": 4
+      },
+      "loss": 1.04066449272165
+    },
+    {
+      "number": 31,
+      "params": {
+        "quality": 95,
+        "method": 3
+      },
+      "loss": 0.09533075522830421
+    }
+  ]
+}

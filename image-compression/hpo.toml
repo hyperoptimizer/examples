@@ -1,0 +1,38 @@
+algorithm = "bayesian"
+maxTrialCount = 32
+parallelTrialCount = 1
+maxFailedTrialCount = 3
+maxRuntimeSecondsPerTrial = 180
+machineSizeId = "nano"
+region = "eu-west"
+useCustomDockerImage = false
+reportingMode = "stdout"
+requiredEnv = []
+fixedArgs = []
+
+[samplerConfig]
+seed = 42
+
+[build]
+context = "."
+dockerfile = "Dockerfile"
+repository = "image-compression"
+platform = "linux/amd64"
+
+[[parameters]]
+name = "WebP quality"
+slug = "quality"
+type = "int"
+min = 50
+max = 100
+
+[[parameters]]
+name = "Encoding method"
+slug = "method"
+type = "int"
+min = 0
+max = 6
+
+[[objectives]]
+name = "compression_loss"
+type = "minimize"
