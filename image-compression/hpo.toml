@@ -20,14 +20,14 @@ repository = "image-compression"
 platform = "linux/amd64"
 
 [[parameters]]
-name = "WebP quality"
+name = "quality"
 slug = "quality"
 type = "int"
 min = 50
 max = 100
 
 [[parameters]]
-name = "Encoding method"
+name = "method"
 slug = "method"
 type = "int"
 min = 0
