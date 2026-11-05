@@ -8,6 +8,8 @@ Start with [image compression](image-compression/README.md): optimize real WebP 
 
 Pull requests build and run every container offline as a non-root user. Releases repeat those checks before publishing linux/amd64 images to `ghcr.io/hyperoptimizer/examples/<name>:<version>` and `:sha-<full-commit>`. Download digest artifacts from the workflow; consumers must record `image@sha256:...`, not mutable tags. Public repository visibility does not automatically make GHCR packages public: set each package's visibility to Public after its first release and verify anonymous pulls.
 
-The first release depends on publishing the Python SDK 0.1.0 to PyPI. Its absence intentionally fails the tracking build; no private SDK checkout is used in public CI.
+The tracking image installs the public `hyperoptimizer==0.1.0` package from PyPI; no private SDK checkout is used in public CI.
 
 Code: MIT. Bundled photographs retain their individual public-domain/CC0 terms; see the dataset manifest and attribution.
+
+Release v0.1.0 was published successfully. Immutable references are in [images.lock.json](images.lock.json). Organization policy currently prevents making the GHCR packages public; anonymous pulls remain pending that policy change. Building the examples from this public source and installing the public SDK work independently.

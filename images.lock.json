@@ -1,0 +1,12 @@
+{
+  "release": "v0.1.0",
+  "source_commit": "4e13b3f3485ab79b99479ee4cd371b0144602c1e",
+  "workflow_run": "https://github.com/hyperoptimizer/examples/actions/runs/42034076975",
+  "images": {
+    "trial-smoke": "ghcr.io/hyperoptimizer/examples/trial-smoke@sha256:9d9ba5d70f2de82d68d5377706447fbf4be74731e25fc625f3552c7af3699f63",
+    "python-tracking": "ghcr.io/hyperoptimizer/examples/python-tracking@sha256:54d64de7e6690e29a28ffb901b11b6aa1c53b655f81bd0ee65571274b838a17f",
+    "normal": "ghcr.io/hyperoptimizer/examples/normal@sha256:00484bfcd8388fb1610d420df1dcd251fb85a2aaad06b483d7dd5203ce3ec8e7",
+    "flood": "ghcr.io/hyperoptimizer/examples/flood@sha256:7c950bf7139c15471164694e5ee7bb88c1e8f88c3bf4080267701fccacc34fab",
+    "image-compression": "ghcr.io/hyperoptimizer/examples/image-compression@sha256:9ea6552311cab87b4f774a0a9350da40979615c1d7bb041dc1f031cdadfb1de3"
+  }
+}

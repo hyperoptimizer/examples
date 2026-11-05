@@ -463,5 +463,7 @@
       },
       "loss": 0.09533075522830421
     }
-  ]
+  ],
+  "published_reproduction_image": "ghcr.io/hyperoptimizer/examples/image-compression@sha256:9ea6552311cab87b4f774a0a9350da40979615c1d7bb041dc1f031cdadfb1de3",
+  "publication_note": "Local Python benchmark; this published image is a reproduction reference, not the execution environment of this recorded benchmark."
 }

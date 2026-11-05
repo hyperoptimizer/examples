@@ -12,7 +12,7 @@ The `image-compression` container accepts `--hpo-quality` and `--hpo-method`, us
 
 Follow [the runnable example](image-compression/README.md). Its hpo.toml builds and pushes the image into your workspace registry and configures 32 Bayesian trials, seed 42, one concurrent trial and a 180-second timeout. Run one trial first to verify Nano resource suitability. Public GHCR publication does not replace the workspace-registry flow on ordinary plans.
 
-The recorded local search uses Optuna 4.5.0 TPE with the same search space and budget. It selected quality 95 and method 3. Dependencies, dataset checksums, all trial parameters, local run ID and per-image metrics are in [the evidence](image-compression/evidence/benchmark.json). Published image digest and managed run ID are absent because those validations are pending.
+The recorded local search uses Optuna 4.5.0 TPE with the same search space and budget. It selected quality 95 and method 3. Dependencies, dataset checksums, all trial parameters, local run ID and per-image metrics are in [the evidence](image-compression/evidence/benchmark.json). The published image digest is recorded as a reproduction reference. This recorded benchmark ran directly in local Python, so its managed run ID and execution-image digest remain absent.
 
 ## What actually happened
 
@@ -35,4 +35,4 @@ The initial three-photo search failed on a held-out rocket photo. That explorato
 
 This is a five-photo demonstration, not a promise about all web imagery or proof of a global optimum. Image dimensions and metadata treatment stay fixed; encoding time is diagnostic. Compare original and decoded images visually, and repeat the workflow on a larger representative corpus before shipping a global encoding policy.
 
-Managed execution, image publication, production memory suitability and platform screenshots remain pending. Add actual run links and image digest only after those checks succeed.
+SDK and container publication passed CI. Anonymous GHCR pulls are blocked by organization package visibility policy. Managed execution, production memory suitability and platform screenshots remain pending. Add actual run links and image digest only after those checks succeed.
