@@ -1,11 +1,12 @@
 import unittest
+
 from trial import evaluate, objective
 
 
 class TrialTests(unittest.TestCase):
     def test_quality_boundary(self):
-        self.assertLess(objective(100000, 1, .95), 1)
-        self.assertGreater(objective(1, 100000, .949999), 1)
+        self.assertLess(objective(100000, 1, 0.95), 1)
+        self.assertGreater(objective(1, 100000, 0.949999), 1)
 
     def test_parameters_affect_real_encoding(self):
         low = evaluate(50, 0)

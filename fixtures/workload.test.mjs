@@ -11,7 +11,16 @@ test('objective optimum and input bounds', () => {
 });
 
 test('normal workload emits only bounded objective metrics', () => {
-  const child = spawnSync(process.execPath, [fileURLToPath(new URL('workload.mjs', import.meta.url)), '--hpo-x=1', '--hpo-y=1', '--hpo-duration-seconds=0.2'], { encoding: 'utf8', timeout: 5000 });
+  const child = spawnSync(
+    process.execPath,
+    [
+      fileURLToPath(new URL('workload.mjs', import.meta.url)),
+      '--hpo-x=1',
+      '--hpo-y=1',
+      '--hpo-duration-seconds=0.2',
+    ],
+    { encoding: 'utf8', timeout: 5000 },
+  );
   assert.equal(child.status, 0);
   assert.match(child.stdout, /hpo.metrics.loss=0/);
   assert.ok(Buffer.byteLength(child.stdout) < 1000);

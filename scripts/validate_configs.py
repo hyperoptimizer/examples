@@ -1,7 +1,8 @@
 import json
 from pathlib import Path
-import tomllib
+
 import jsonschema
+import tomllib
 
 root = Path(__file__).resolve().parents[1]
 schema = json.loads((root / "contracts/hpo-config.json").read_text())

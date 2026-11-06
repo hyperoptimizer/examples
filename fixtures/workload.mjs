@@ -11,7 +11,8 @@ export function configuration(args) {
   for (const value of Object.values(options))
     if (!Number.isFinite(value)) throw new Error('Inputs must be finite');
   if (Math.abs(options.x) > 10 || Math.abs(options.y) > 10) throw new Error('Inputs outside range');
-  if (options['duration-seconds'] < 0.1 || options['duration-seconds'] > 300) throw new Error('Duration outside range');
+  if (options['duration-seconds'] < 0.1 || options['duration-seconds'] > 300)
+    throw new Error('Duration outside range');
   return options;
 }
 
