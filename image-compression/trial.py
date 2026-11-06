@@ -1,10 +1,11 @@
 """One offline WebP evaluation; the optimizer lives outside this container."""
+
 import argparse
 import hashlib
 import io
 import json
-from pathlib import Path
 import time
+from pathlib import Path
 
 import numpy as np
 from PIL import Image
@@ -43,18 +44,39 @@ def evaluate(quality: int, method: int, split: str = "tuning", output: Path | No
         seconds = time.perf_counter() - start
         with Image.open(io.BytesIO(encoded.getvalue())) as decoded:
             restored = decoded.convert("RGB")
-            similarity = float(structural_similarity(pixels, np.asarray(restored), data_range=255, channel_axis=2))
+            similarity = float(
+                structural_similarity(pixels, np.asarray(restored), data_range=255, channel_axis=2)
+            )
             if output is not None:
                 (output / f"{path.stem}.webp").write_bytes(encoded.getvalue())
                 comparison = Image.new("RGB", (image.width * 2, image.height))
                 comparison.paste(image, (0, 0))
                 comparison.paste(restored, (image.width, 0))
                 comparison.save(output / f"{path.stem}-comparison.png")
-        rows.append({"file": path.name, "ssim": similarity, "bytes": len(encoded.getvalue()), "source_rgb_bytes": pixels.nbytes, "encoding_seconds": seconds})
+        rows.append(
+            {
+                "file": path.name,
+                "ssim": similarity,
+                "bytes": len(encoded.getvalue()),
+                "source_rgb_bytes": pixels.nbytes,
+                "encoding_seconds": seconds,
+            }
+        )
     minimum = min(row["ssim"] for row in rows)
     size = sum(row["bytes"] for row in rows)
     raw = sum(row["source_rgb_bytes"] for row in rows)
-    return {"quality": quality, "method": method, "split": split, "compression_loss": objective(size, raw, minimum), "total_bytes": size, "minimum_ssim": minimum, "mean_ssim": sum(row["ssim"] for row in rows) / len(rows), "encoding_seconds": sum(row["encoding_seconds"] for row in rows), "quality_pass": minimum >= FLOOR, "images": rows}
+    return {
+        "quality": quality,
+        "method": method,
+        "split": split,
+        "compression_loss": objective(size, raw, minimum),
+        "total_bytes": size,
+        "minimum_ssim": minimum,
+        "mean_ssim": sum(row["ssim"] for row in rows) / len(rows),
+        "encoding_seconds": sum(row["encoding_seconds"] for row in rows),
+        "quality_pass": minimum >= FLOOR,
+        "images": rows,
+    }
 
 
 def main() -> None:
@@ -65,10 +87,19 @@ def main() -> None:
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     report = evaluate(args.hpo_quality, args.hpo_method, args.split, args.output)
-    for name in ["total_bytes", "minimum_ssim", "mean_ssim", "encoding_seconds", "quality_pass", "compression_loss"]:
+    for name in [
+        "total_bytes",
+        "minimum_ssim",
+        "mean_ssim",
+        "encoding_seconds",
+        "quality_pass",
+        "compression_loss",
+    ]:
         print(f"hpo.metrics.{name}={json.dumps(report[name], allow_nan=False)}", flush=True)
     if args.output is not None:
-        (args.output / "report.json").write_text(json.dumps(report, indent=2, allow_nan=False), encoding="utf-8")
+        (args.output / "report.json").write_text(
+            json.dumps(report, indent=2, allow_nan=False), encoding="utf-8"
+        )
 
 
 if __name__ == "__main__":

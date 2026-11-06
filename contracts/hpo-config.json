@@ -3,14 +3,7 @@
   "properties": {
     "algorithm": {
       "type": "string",
-      "enum": [
-        "random",
-        "grid",
-        "bayesian",
-        "hyperband",
-        "cma-es",
-        "sobol"
-      ]
+      "enum": ["random", "grid", "bayesian", "hyperband", "cma-es", "sobol"]
     },
     "baselineMetrics": {
       "type": "object",
@@ -55,11 +48,7 @@
           "maxLength": 128
         }
       },
-      "required": [
-        "image",
-        "registry",
-        "tag"
-      ],
+      "required": ["image", "registry", "tag"],
       "additionalProperties": false
     },
     "fixedArgs": {
@@ -74,13 +63,7 @@
     },
     "machineSizeId": {
       "type": "string",
-      "enum": [
-        "nano",
-        "small",
-        "medium",
-        "large",
-        "xl"
-      ],
+      "enum": ["nano", "small", "medium", "large", "xl"],
       "default": "nano"
     },
     "maxFailedTrialCount": {
@@ -102,13 +85,7 @@
       "type": "object",
       "additionalProperties": {
         "type": "string",
-        "enum": [
-          "last",
-          "min",
-          "max",
-          "mean",
-          "explicit"
-        ]
+        "enum": ["last", "min", "max", "mean", "explicit"]
       },
       "propertyNames": {
         "minLength": 1,
@@ -135,20 +112,13 @@
                 },
                 "op": {
                   "type": "string",
-                  "enum": [
-                    ">=",
-                    "<="
-                  ]
+                  "enum": [">=", "<="]
                 },
                 "value": {
                   "type": "number"
                 }
               },
-              "required": [
-                "metric",
-                "op",
-                "value"
-              ],
+              "required": ["metric", "op", "value"],
               "additionalProperties": false
             },
             "minItems": 1
@@ -164,16 +134,10 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "minimize",
-              "maximize"
-            ]
+            "enum": ["minimize", "maximize"]
           }
         },
-        "required": [
-          "name",
-          "type"
-        ],
+        "required": ["name", "type"],
         "additionalProperties": false
       },
       "minItems": 1,
@@ -215,11 +179,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "double",
-              "int",
-              "categorical"
-            ]
+            "enum": ["double", "int", "categorical"]
           },
           "values": {
             "type": "array",
@@ -228,11 +188,7 @@
             }
           }
         },
-        "required": [
-          "name",
-          "slug",
-          "type"
-        ],
+        "required": ["name", "slug", "type"],
         "additionalProperties": false
       },
       "minItems": 1,
@@ -245,10 +201,7 @@
     },
     "reportingMode": {
       "type": "string",
-      "enum": [
-        "stdout",
-        "sdk"
-      ],
+      "enum": ["stdout", "sdk"],
       "default": "stdout"
     },
     "samplerConfig": {
@@ -273,10 +226,7 @@
         },
         "restart_strategy": {
           "type": "string",
-          "enum": [
-            "ipop",
-            "bipop"
-          ]
+          "enum": ["ipop", "bipop"]
         },
         "scramble": {
           "type": "boolean"
@@ -323,10 +273,7 @@
         },
         "platform": {
           "type": "string",
-          "enum": [
-            "linux/amd64",
-            "linux/arm64"
-          ],
+          "enum": ["linux/amd64", "linux/arm64"],
           "default": "linux/amd64"
         },
         "repository": {
@@ -334,9 +281,7 @@
           "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*(?:\\/[a-z0-9]+(?:[._-][a-z0-9]+)*)*$"
         }
       },
-      "required": [
-        "repository"
-      ],
+      "required": ["repository"],
       "additionalProperties": false
     },
     "target": {
@@ -347,17 +292,11 @@
           "pattern": "^[0-9A-HJKMNP-TV-Z]{26}$"
         }
       },
-      "required": [
-        "projectId"
-      ],
+      "required": ["projectId"],
       "additionalProperties": false
     }
   },
-  "required": [
-    "algorithm",
-    "objectives",
-    "parameters"
-  ],
+  "required": ["algorithm", "objectives", "parameters"],
   "additionalProperties": false,
   "$schema": "http://json-schema.org/draft-07/schema#"
 }
