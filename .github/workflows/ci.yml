@@ -15,15 +15,17 @@ jobs:
       matrix:
         image: [trial-smoke, python-tracking, normal, image-compression]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
         with:
           python-version: '3.12'
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version: '22'
-      - uses: docker/setup-buildx-action@v3
-      - run: pip install -r image-compression/requirements.txt jsonschema==4.25.1
+      - uses: docker/setup-buildx-action@v4.4.1
+      - run: python -m pip install -r requirements-ci.txt
+      - run: python -m pip_audit --disable-pip --no-deps -r requirements-ci.txt -r fixtures/python-tracking/requirements.txt
+        if: matrix.image == 'image-compression'
       - run: python scripts/validate_configs.py
       - run: python -m unittest discover -s image-compression -v
       - run: python scripts/check.py --image ${{ matrix.image }}

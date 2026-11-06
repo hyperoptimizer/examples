@@ -1,0 +1,3 @@
+-r image-compression/requirements-dev.txt
+jsonschema>=4.26.0
+pip-audit>=2.10.1

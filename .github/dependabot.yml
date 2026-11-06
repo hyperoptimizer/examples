@@ -1,0 +1,24 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directories:
+      - /
+      - /image-compression
+      - /fixtures/python-tracking
+    schedule:
+      interval: weekly
+    groups:
+      python-dependencies:
+        patterns: ['*']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directories:
+      - /image-compression
+      - /fixtures/normal
+      - /fixtures/trial-smoke
+      - /fixtures/python-tracking
+    schedule:
+      interval: weekly
