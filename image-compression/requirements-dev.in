@@ -1,2 +1,2 @@
 -r requirements.txt
-optuna>=5.0.0
+optuna>=5.1.0

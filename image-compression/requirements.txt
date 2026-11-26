@@ -6,7 +6,7 @@ lazy-loader==0.6
     # via scikit-image
 networkx==3.7
     # via scikit-image
-numpy==2.5.4
+numpy==2.5.5
     # via
     #   -r image-compression/requirements.in
     #   imageio
